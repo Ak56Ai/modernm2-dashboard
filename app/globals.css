@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #F5FBE6;
+  --foreground: #233D4D;
+  --primary: #215E61;
+  --secondary: #233D4D;
+  --accent: #FE7F2D;
+  --highlight: #C40C0C;
+  --neutral: #B7B7B7;
+  --card: #FFFFFF;
+  --card-foreground: #233D4D;
+  --border: #E5E5E5;
+  --muted: #F8F9FA;
+  --muted-foreground: #6C757D;
+  --radius: 1rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .bg-brand-background {
+    background-color: var(--background);
+  }
+
+  .bg-brand-primary {
+    background-color: var(--primary);
+  }
+
+  .bg-brand-secondary {
+    background-color: var(--secondary);
+  }
+
+  .bg-brand-accent {
+    background-color: var(--accent);
+  }
+
+  .bg-brand-highlight {
+    background-color: var(--highlight);
+  }
+
+  .text-brand-primary {
+    color: var(--primary);
+  }
+
+  .text-brand-secondary {
+    color: var(--secondary);
+  }
+
+  .text-brand-accent {
+    color: var(--accent);
+  }
+
+  .text-brand-highlight {
+    color: var(--highlight);
+  }
+
+  .border-brand-accent {
+    border-color: var(--accent);
+  }
+
+  .hover-lift {
+    transition: all 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .perspective {
+    perspective: 1200px;
+  }
+
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}
