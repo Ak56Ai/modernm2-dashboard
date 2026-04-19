@@ -2,8 +2,12 @@ import { redirect } from 'next/navigation'
 import { cookies } from 'next/headers'
 import { createServerSupabaseClient } from '@/lib/supabase/server'
 
+// Ensure this page is treated as dynamic
+export const dynamic = 'force-dynamic'
+
 export default async function HomePage() {
-  const cookieStore = cookies()
+  // Await the cookies function
+  const cookieStore = await cookies()
   const supabase = createServerSupabaseClient(cookieStore)
   
   // Check if user is authenticated
