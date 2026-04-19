@@ -1,8 +1,10 @@
 import { redirect } from 'next/navigation'
+import { cookies } from 'next/headers'
 import { createServerSupabaseClient } from '@/lib/supabase/server'
 
 export default async function HomePage() {
-  const supabase = createServerSupabaseClient()
+  const cookieStore = cookies()
+  const supabase = createServerSupabaseClient(cookieStore)
   
   // Check if user is authenticated
   const { data: { user }, error } = await supabase.auth.getUser()
@@ -12,7 +14,7 @@ export default async function HomePage() {
   }
   
   // Check if user is admin
-  const isAdmin = user.id === process.env.ADMIN_USER_ID
+  const isAdmin = user.id === process.env.NEXT_PUBLIC_ADMIN_USER_ID
   
   if (!isAdmin) {
     return (
